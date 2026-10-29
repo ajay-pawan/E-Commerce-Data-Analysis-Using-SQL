@@ -1,0 +1,24 @@
+digraph Model {
+ graph [rankdir=LR, bgcolor="white", pad="0.25", nodesep="0.45", ranksep="0.7", splines=ortho, fontname="DejaVu Sans", label="Brazilian E-Commerce SQL Project - Logical Data Model", labelloc=t, fontsize=22, fontcolor="#12243A"];
+ node [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=10, color="#C9D8E0", fontcolor="#12243A", penwidth=1.4, margin="0.16,0.12"];
+ edge [fontname="DejaVu Sans", fontsize=9, color="#607486", fontcolor="#607486", penwidth=1.25, arrowsize=0.7];
+ customers [label="dim_customers\nPK customer_id\ncity, state, ZIP prefix", fillcolor="#EAF4F7", color="#5B96B2"];
+ orders [label="fact_orders\nPK order_id\nFK customer_id\nstatus + purchase / delivery dates", fillcolor="#DDEBFA", color="#2F78B7", penwidth=2];
+ items [label="fact_order_items\nPK (order_id, order_item_id)\nFK product_id, seller_id\nprice + freight_value", fillcolor="#DDF5EF", color="#15966B", penwidth=2];
+ payments [label="dim_payments*\nPK (order_id, payment_sequential)\npayment_type, installments, payment_value", fillcolor="#FFF3DD", color="#D59A39"];
+ reviews [label="dim_order_reviews*\nreview_id, order_id\nreview_score + review timestamps", fillcolor="#FFF3DD", color="#D59A39"];
+ products [label="dim_products\nPK product_id\nproduct_category + attributes", fillcolor="#EAF4F7", color="#5B96B2"];
+ sellers [label="dim_sellers\nPK seller_id\ncity, state, ZIP prefix", fillcolor="#EAF4F7", color="#5B96B2"];
+ geo [label="dim_geolocation\nZIP-prefix lookup\nRepeated ZIP prefixes; aggregate before joining", fillcolor="#F3F5F7", color="#8A9BA8"];
+ customers -> orders [label="1 : many\ncustomer_id"];
+ orders -> items [label="1 : many\norder_id"];
+ products -> items [label="1 : many\nproduct_id"];
+ sellers -> items [label="1 : many\nseller_id"];
+ orders -> payments [dir=both, arrowtail=none, label="1 : many\norder_id", color="#D59A39"];
+ orders -> reviews [dir=both, arrowtail=none, label="1 : many\norder_id", color="#D59A39"];
+ customers -> geo [style=dashed, arrowhead=none, label="ZIP prefix (lookup only)", color="#9AAAB5"];
+ sellers -> geo [style=dashed, arrowhead=none, label="ZIP prefix (lookup only)", color="#9AAAB5"];
+ note [shape=note, label="* Payments and reviews retain dim_ prefixes to follow the requested schema naming convention.\nIn strict dimensional modelling, they behave like transaction/event tables.\nJoin them at the correct grain to avoid duplicated amounts.", fillcolor="#F9FAFB", color="#D6E0E6", fontsize=9];
+ {rank=same; payments; orders; reviews;}
+ {rank=same; customers; geo;}
+}
