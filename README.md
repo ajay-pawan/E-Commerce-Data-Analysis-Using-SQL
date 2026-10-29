@@ -29,11 +29,10 @@ The analysis explores purchase trends, customer geography, payment behavior, ite
 
 - [Dataset and methodology](#dataset-and-methodology)
 - [Data model](#data-model)
-- [Original analysis requests and findings](#original-analysis-requests-and-findings)
-- [Six supplemental portfolio questions](#six-supplemental-portfolio-questions)
+- [analysis requests and findings](#analysis-requests-and-findings)
 - [SQL techniques](#sql-techniques)
 - [Limitations and validation notes](#limitations-and-validation-notes)
-- [Repository structure](#repository-structure)
+
 
 ## Dataset and methodology
 
@@ -78,7 +77,7 @@ The analysis was calculated from the uploaded CSV files. The totals below are th
 
 The names `dim_payments` and `dim_order_reviews` follow the requested `dim_` naming convention. In strict dimensional modelling, payments and reviews behave more like transaction/event tables. Joining raw `fact_order_items` and raw payment rows together can multiply rows and overstate amounts; aggregate each grain separately.
 
-## Original analysis requests and findings
+## analysis requests and findings
 
 The following 17 questions preserve the intent of the provided problem statement, framed for the Olist dataset.
 
