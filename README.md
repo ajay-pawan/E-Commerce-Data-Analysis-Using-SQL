@@ -265,7 +265,6 @@ Counts by type are not necessarily mutually exclusive because one order can have
 
 The monthly chart compares January-August 2017 and 2018 separately to avoid presenting the sparse late-2018 records as a real demand pattern.
 
-![Total payment value by payment type](assets/payment_value_by_type.png)
 
 **Q17. How many orders are associated with each payment-installment count?**
 
