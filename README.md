@@ -280,66 +280,8 @@ The monthly chart compares January-August 2017 and 2018 separately to avoid pres
 | 8 | 4,253 |
 | 6 | 3,916 |
 
-One installment is the most common grouping. Distinct order counts are calculated within each installment bucket.
 
-![Orders by installment count](assets/orders_by_installments.png)
 
-## Six supplemental portfolio questions
-
-These are six additional questions created beyond the 17 original analysis requests.
-
-### Q18. What is the order-status distribution?
-
-| Status | Orders | Share |
-|---|---:|---:|
-| Delivered | 96,478 | 97.02% |
-| Shipped | 1,107 | 1.11% |
-| Canceled | 625 | 0.63% |
-| Unavailable | 609 | 0.61% |
-
-**Insight:** Delivered orders account for about 97% of all order records; canceled and unavailable statuses are each below 1% of the total.
-
-![Order status distribution](assets/order_status_distribution.png)
-
-### Q19. Which payment type contributes the largest total payment value?
-
-`credit_card` contributes **R$ 12,542,084.19**, substantially more than `UPI` (**R$ 2,869,361.27**). This compares payment-value rows by type; do not sum this with item price and freight without clearly defining the financial measure.
-
-### Q20. What share of delivered orders arrived early, on the estimated date, or late?
-
-| Timing | Orders | Share of delivered orders |
-|---|---:|---:|
-| Early | 88,649 | 91.89% |
-| On time (same calendar date) | 1,292 | 1.34% |
-| Late | 6,535 | 6.77% |
-
-![Delivery timeliness](assets/delivery_timeliness.png)
-
-### Q21. What is the distribution of customer review scores?
-
-The average review score is **4.09 / 5** across **99,224 review rows**. A total of **57,328 reviews (57.78%)** are 5-star; **11,424 reviews (11.51%)** are 1-star. The low-score segment is worth reviewing alongside late delivery and order-status outcomes.
-
-![Review score distribution](assets/review_score_distribution.png)
-
-### Q22. Which product categories have the highest item-price value?
-
-| Product category label in source | Sum of item price |
-|---|---:|
-| HEALTH BEAUTY | R$ 1,258,681.34 |
-| Watches present | R$ 1,205,005.68 |
-| bed table bath | R$ 1,036,988.68 |
-| sport leisure | R$ 988,048.97 |
-| computer accessories | R$ 911,954.32 |
-
-This measure is the sum of `order_items.price`, not payment total. The supplied product-category lookup is not fully standardized and the category-translation CSV was not provided, so labels are retained as found in the source file.
-
-![Top product categories by item-price value](assets/top_product_categories.png)
-
-### Q23. Which weekday has the most and fewest order purchases?
-
-**Monday** has the highest order count at **16,196 (16.29%)**. **Saturday** has the lowest at **10,887 (10.95%)**.
-
-![Orders by weekday](assets/orders_by_weekday.png)
 
 ## SQL techniques
 
