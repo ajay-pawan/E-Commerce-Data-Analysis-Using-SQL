@@ -362,39 +362,9 @@ This measure is the sum of `order_items.price`, not payment total. The supplied 
 6. **Payment types:** The values shown above mirror the uploaded payments CSV. The file contains `UPI`; use actual `SELECT DISTINCT payment_type` output when validating other copies of the dataset.
 7. **SQL dialect:** `sql/olist_analysis_queries_bigquery.sql` uses BigQuery Standard SQL. `sql/ecommerce_db_schema_mysql.sql` is the MySQL 8 DDL version of the requested table structure; some query functions such as `PIVOT` and `SAFE_DIVIDE` need adaptation to run in MySQL Workbench.
 
-## Repository structure
 
-```text
-olist_sql_portfolio/
-├── README.md
-├── assets/
-│   ├── project_banner.png
-│   ├── data_model.png
-│   ├── data_model.dot
-│   ├── orders_by_year.png
-│   ├── monthly_orders_by_year.png
-│   ├── orders_by_time_of_day.png
-│   ├── state_customer_distribution.png
-│   ├── state_month_order_heatmap.png
-│   ├── payment_value_yoy.png
-│   ├── avg_freight_top_bottom.png
-│   ├── delivery_time_state_comparison.png
-│   ├── delivery_timeliness.png
-│   ├── monthly_orders_by_payment_type.png
-│   ├── payment_value_by_type.png
-│   ├── orders_by_installments.png
-│   ├── order_status_distribution.png
-│   ├── review_score_distribution.png
-│   ├── top_product_categories.png
-│   └── orders_by_weekday.png
-├── docs/
-│   ├── problem_statement.pdf
-│   ├── adhoc_data_analysis_questions.pdf
-│   └── data_model.pdf
-└── sql/
-    ├── olist_analysis_queries_bigquery.sql
-    └── ecommerce_db_schema_mysql.sql
-```
+
+
 
 ## Documentation PDFs
 
