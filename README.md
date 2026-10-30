@@ -306,8 +306,4 @@ The monthly chart compares January-August 2017 and 2018 separately to avoid pres
 
 
 
-## Documentation PDFs
 
-- [Project problem statement](docs/problem_statement.pdf)
-- [Ad-hoc data analysis questions (17 original + 6 supplemental)](docs/adhoc_data_analysis_questions.pdf)
-- [Logical data model](docs/data_model.pdf)
